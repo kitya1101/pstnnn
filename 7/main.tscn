@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Line1.gd" type="Script" id=1]
+[ext_resource path="res://main.gd" type="Script" id=2]
+[ext_resource path="res://7.png" type="Texture" id=3]
+[ext_resource path="res://Line2.gd" type="Script" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 827, 1169 )
+z_index = -1
+texture = ExtResource( 3 )
+
+[node name="Line1" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="Line2" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="1M" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="1M"]
+polygon = PoolVector2Array( 792, 840, 177, 1897, 200, 1993, 288, 2017, 1468, 2016, 1518, 1949, 1522, 1861, 923, 834, 849, 827, 860, 1156, 1223, 1788, 510, 1782, 844, 1163 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="1M"]
+polygon = PoolVector2Array( 793, 840, 851, 827, 862, 1153, 840, 1163, 791, 841 )
+
+[node name="2M" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="2M"]
+visible = false
+polygon = PoolVector2Array( 786, 830, 133, 1959, 183, 2022, 1508, 2020, 1584, 1954, 924, 830 )
+
+[node name="c1" type="TextureButton" parent="."]
+margin_left = 1173.0
+margin_top = 554.0
+margin_right = 1213.0
+margin_bottom = 594.0
+rect_scale = Vector2( 7.38241, 6.46587 )
+
+[node name="c2" type="TextureButton" parent="."]
+margin_left = 1173.0
+margin_top = 817.0
+margin_right = 1213.0
+margin_bottom = 857.0
+rect_scale = Vector2( 7.38241, 6.99784 )
+
+[node name="1" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="1"]
+position = Vector2( 857, 935 )
+scale = Vector2( 10.6253, 10.6253 )
+shape = SubResource( 1 )
+
+[node name="8" type="Area2D" parent="."]
+position = Vector2( -364, 630 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="8"]
+position = Vector2( 861, 939 )
+scale = Vector2( 11.2684, 11.2684 )
+shape = SubResource( 1 )
+
+[node name="9" type="Area2D" parent="."]
+position = Vector2( -187, 318 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="9"]
+position = Vector2( 861, 936 )
+scale = Vector2( 10.6253, 10.6253 )
+shape = SubResource( 1 )
+
+[connection signal="mouse_entered" from="1M" to="." method="_on_1M_mouse_entered"]
+[connection signal="mouse_exited" from="1M" to="." method="_on_1M_mouse_exited"]
+[connection signal="mouse_entered" from="2M" to="." method="_on_2M_mouse_entered"]
+[connection signal="mouse_exited" from="2M" to="." method="_on_2M_mouse_exited"]
+[connection signal="pressed" from="c1" to="." method="_on_c1_pressed"]
+[connection signal="pressed" from="c2" to="." method="_on_c2_pressed"]
+[connection signal="mouse_entered" from="1" to="." method="_on_1_mouse_entered"]
+[connection signal="mouse_exited" from="1" to="." method="_on_1_mouse_exited"]
+[connection signal="mouse_entered" from="8" to="." method="_on_8_mouse_entered"]
+[connection signal="mouse_exited" from="8" to="." method="_on_8_mouse_exited"]
+[connection signal="mouse_entered" from="9" to="." method="_on_9_mouse_entered"]
+[connection signal="mouse_exited" from="9" to="." method="_on_9_mouse_exited"]
